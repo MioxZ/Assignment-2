@@ -43,7 +43,7 @@ jobs:
         uses: actions/setup-python@v3.1.2
       
       - name: Execute Python Script
-        run : python "./scripts/replaceFileString.py ${{ github.event.inputs.filename }} ${{ github.event.inputs.toReplace }} ${{ github.event.inputs.toReplaceWith }}"
+        run : python "scripts/replaceFileString.py ${{ github.event.inputs.filename }} ${{ github.event.inputs.toReplace }} ${{ github.event.inputs.toReplaceWith }}"
         
   PreProd-build:
     runs-on: ubuntu-latest
@@ -59,7 +59,7 @@ jobs:
         uses: actions/setup-python@v3.1.2
       
       - name: Execute Python Script
-        run : python "./scripts/replaceFileString.py ${{ github.event.inputs.filename }} ${{ github.event.inputs.toReplace }} ${{ github.event.inputs.toReplaceWith }}"
+        run : python "scripts/replaceFileString.py ${{ github.event.inputs.filename }} ${{ github.event.inputs.toReplace }} ${{ github.event.inputs.toReplaceWith }}"
         
   Prod-build:
     runs-on: ubuntu-latest
@@ -75,5 +75,5 @@ jobs:
         uses: actions/setup-python@v3.1.2
       
       - name: Execute Python Script
-        run : python "./scripts/replaceFileString.py ${{ github.event.inputs.filename }} ${{ github.event.inputs.toReplace }} ${{ github.event.inputs.toReplaceWith }}"
+        run : python "scripts/replaceFileString.py ${{ github.event.inputs.filename }} ${{ github.event.inputs.toReplace }} ${{ github.event.inputs.toReplaceWith }}"
 
