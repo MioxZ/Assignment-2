@@ -49,28 +49,10 @@ jobs:
         uses: actions/setup-python@v3.1.2
       
       - name: Execute Python Script
-        run : python "${{ env.ENV_DIR }}/scripts/replaceFileString.py ${{ github.event.inputs.filename }} ${{ github.event.inputs.toReplace }} ${{ github.event.inputs.toReplaceWith }}"
+        run : | 
+          python "${{ env.ENV_DIR }}/scripts/replaceFileString.py ${{ github.event.inputs.filename }} ${{ github.event.inputs.toReplace }} ${{ github.event.inputs.toReplaceWith }}"
         
   PreProd-build:
-    runs-on: ubuntu-latest
-    environment: Prod
-    
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-        with:
-            repository: MioxZ/Assignment-2
-            path: ${{ env.ENV_DIR }}
-
-      # Runs a single command using the runners shell
-      - name: Setup Python
-        uses: actions/setup-python@v3.1.2
-      
-      - name: Execute Python Script
-        run : python "${{ env.ENV_DIR }}/scripts/replaceFileString.py ${{ github.event.inputs.filename }} ${{ github.event.inputs.toReplace }} ${{ github.event.inputs.toReplaceWith }}"
-        
-  Prod-build:
     runs-on: ubuntu-latest
     environment: PreProd
     
@@ -87,4 +69,25 @@ jobs:
         uses: actions/setup-python@v3.1.2
       
       - name: Execute Python Script
-        run : python "${{ env.ENV_DIR }}/scripts/replaceFileString.py ${{ github.event.inputs.filename }} ${{ github.event.inputs.toReplace }} ${{ github.event.inputs.toReplaceWith }}"
+        run : |
+          python "${{ env.ENV_DIR }}/scripts/replaceFileString.py ${{ github.event.inputs.filename }} ${{ github.event.inputs.toReplace }} ${{ github.event.inputs.toReplaceWith }}"
+        
+  Prod-build:
+    runs-on: ubuntu-latest
+    environment: Prod
+    
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+        with:
+            repository: MioxZ/Assignment-2
+            path: ${{ env.ENV_DIR }}
+
+      # Runs a single command using the runners shell
+      - name: Setup Python
+        uses: actions/setup-python@v3.1.2
+      
+      - name: Execute Python Script
+        run : | 
+          python "${{ env.ENV_DIR }}/scripts/replaceFileString.py ${{ github.event.inputs.filename }} ${{ github.event.inputs.toReplace }} ${{ github.event.inputs.toReplaceWith }}"
