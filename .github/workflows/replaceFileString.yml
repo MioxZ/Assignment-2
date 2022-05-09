@@ -26,6 +26,9 @@ on:
         description: "Insert the string to be replaced with"
         required: true
 
+env:
+  ENV_DIR: Assignment-2
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   Dev-build:
@@ -43,7 +46,7 @@ jobs:
         uses: actions/setup-python@v3.1.2
       
       - name: Execute Python Script
-        run : python "scripts/replaceFileString.py ${{ github.event.inputs.filename }} ${{ github.event.inputs.toReplace }} ${{ github.event.inputs.toReplaceWith }}"
+        run : python "${{ env.ENV_DIR }}/scripts/replaceFileString.py ${{ github.event.inputs.filename }} ${{ github.event.inputs.toReplace }} ${{ github.event.inputs.toReplaceWith }}"
         
   PreProd-build:
     runs-on: ubuntu-latest
@@ -59,7 +62,7 @@ jobs:
         uses: actions/setup-python@v3.1.2
       
       - name: Execute Python Script
-        run : python "scripts/replaceFileString.py ${{ github.event.inputs.filename }} ${{ github.event.inputs.toReplace }} ${{ github.event.inputs.toReplaceWith }}"
+        run : python "${{ env.ENV_DIR }}/scripts/replaceFileString.py ${{ github.event.inputs.filename }} ${{ github.event.inputs.toReplace }} ${{ github.event.inputs.toReplaceWith }}"
         
   Prod-build:
     runs-on: ubuntu-latest
@@ -75,5 +78,5 @@ jobs:
         uses: actions/setup-python@v3.1.2
       
       - name: Execute Python Script
-        run : python "scripts/replaceFileString.py ${{ github.event.inputs.filename }} ${{ github.event.inputs.toReplace }} ${{ github.event.inputs.toReplaceWith }}"
+        run : python "${{ env.ENV_DIR }}/scripts/replaceFileString.py ${{ github.event.inputs.filename }} ${{ github.event.inputs.toReplace }} ${{ github.event.inputs.toReplaceWith }}"
 
