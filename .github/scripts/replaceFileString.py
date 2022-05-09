@@ -13,7 +13,7 @@ print("To read from - {0}".format(sys.argv[1]));
 print("To replace - {0}".format(sys.argv[2]));
 print("To replace with - {0}".format(sys.argv[3]));
 
-with open(fileName, 'rt') as readFile:
+with open("./files/{0}".format(fileName), 'rt') as readFile:
     if (existingString in readFile.read()):
         data = readFile.read();
         data = data.replace(existingString, newString);
