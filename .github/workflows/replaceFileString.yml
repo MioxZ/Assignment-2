@@ -27,7 +27,7 @@ on:
         required: true
 
 env:
-  ENV_DIR: Assignment-2
+  ENV_DIR: scripts
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -50,7 +50,7 @@ jobs:
       
       - name: Execute Python Script
         run : | 
-          python "${{ env.ENV_DIR }}/scripts/replaceFileString.py ${{ github.event.inputs.filename }} ${{ github.event.inputs.toReplace }} ${{ github.event.inputs.toReplaceWith }}"
+          python "${{ env.ENV_DIR }}/replaceFileString.py ${{ github.event.inputs.filename }} ${{ github.event.inputs.toReplace }} ${{ github.event.inputs.toReplaceWith }}"
         
   PreProd-build:
     runs-on: ubuntu-latest
