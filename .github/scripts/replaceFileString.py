@@ -13,14 +13,13 @@ print("To read from - {0}".format(sys.argv[1]));
 print("To replace - {0}".format(sys.argv[2]));
 print("To replace with - {0}".format(sys.argv[3]));
 
-with open("./files/{0}".format(fileName), 'rt') as readFile:
-    if (existingString in readFile.read()):
-        data = readFile.read();
-        data = data.replace(existingString, newString);
+with open(fileName, 'rt') as readFile:
+    data = readFile.read();
+    if (existingString not in data):
+        print("string is not found");
     else:
-        print("String is not found.");
+        data = data.replace(existingString, newString);
 
-if (len(data)):
-    with open(fileName, 'wt') as writeFile:
-        writeFile.write(data);
-        print("Replaced successfully.");
+with open(fileName, 'wt') as writefile:
+    writefile.write(data);
+    print("Replaced successfully.");
