@@ -66,12 +66,7 @@ jobs:
         with:
           python-version: 3.8
       
-      - name: Go to Scripts directory
-        run: | 
-          cd ${{ env.SCRIPTS_DIR }}
-          ls
-      
       - name: Execute Python Script
         run : | 
-          python "replaceFileString.py ${{ github.event.inputs.filename }} ${{ github.event.inputs.toReplace }} ${{ github.event.inputs.toReplaceWith }}"
+          python "${{ env.SCRIPTS_DIR }}/replaceFileString.py" "${{ github.event.inputs.filename }}" "${{ github.event.inputs.toReplace }}" "${{ github.event.inputs.toReplaceWith }}"
         
