@@ -16,7 +16,7 @@ on:
       filename:
         description: "Define File Name (with extension, e.g. .txt & path (if in different directory))"
         required: true
-        default: 'sample.txt'
+        default: 'sample-files/sample.txt'
         
       toReplace:
         description: "Insert the string to be replaced"
