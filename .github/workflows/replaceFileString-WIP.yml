@@ -49,5 +49,5 @@ jobs:
       
       - name: Execute Python Script
         run : | 
-          python "$GITHUB_WORKSPACE/${{ env.SCRIPTS_DIR }}/replaceFileString.py ${{ github.event.inputs.filename }} ${{ github.event.inputs.toReplace }} ${{ github.event.inputs.toReplaceWith }}"
+          python "${{ env.SCRIPTS_DIR }}/replaceFileString.py ${{ github.event.inputs.filename }} ${{ github.event.inputs.toReplace }} ${{ github.event.inputs.toReplaceWith }}"
         
