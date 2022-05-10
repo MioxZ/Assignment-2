@@ -54,8 +54,6 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     environment: Dev
-    permissions:
-      repository-projects: write
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -72,3 +70,27 @@ jobs:
         run : | 
           python "${{ env.SCRIPTS_DIR }}/replaceFileString.py" "${{ github.event.inputs.filename }}" "${{ github.event.inputs.toReplace }}" "${{ github.event.inputs.toReplaceWith }}"
         
+      - name: Git Commit/Push Changes
+        # You may pin to the exact commit or the version.
+        # uses: actions-x/commit@803b20e5b72c0425eb7919c42c321e67c5bc5d2d
+        uses: actions-x/commit@v6
+        with:
+          # The committer's email address
+          email: ${{ github.actor }}@localhost
+          # The committer's name
+          name: ${{ github.actor }}
+          # The commit message
+          message: Automatically updated using GitHub Actions - Replace substring in file
+          # The branch to push the changes back to, defaults to the current branch
+          branch: ${{ github.ref }}
+          # The files to add separated by space, defaults to every file
+          files: .
+          # The repository to push the code to, defaults to origin (e.g. this repository)
+          repository: origin
+          # The token used to push the code, not needed if you push to the same repository
+          token: ${{ github.token }}
+          # Whether to perform force push
+          force: 0
+          # The working directory that will be used for git commands
+          directory: .
+
