@@ -68,5 +68,5 @@ jobs:
       
       - name: Execute Python Script
         run : | 
-          python "${{ env.SCRIPTS_DIR }}/replaceFileString.py ${{ github.event.inputs.filename }} ${{ github.event.inputs.toReplace }} ${{ github.event.inputs.toReplaceWith }}"
+          python "${{ env.SCRIPTS_DIR }}//replaceFileString.py ${{ github.event.inputs.filename }} ${{ github.event.inputs.toReplace }} ${{ github.event.inputs.toReplaceWith }}"
         
