@@ -67,7 +67,9 @@ jobs:
           python-version: 3.8
       
       - name: Go to Scripts directory
-        run: cd ${{ env.SCRIPTS_DIR }}
+        run: | 
+          cd ${{ env.SCRIPTS_DIR }}
+          ls
       
       - name: Execute Python Script
         run : | 
