@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
     inputs:
       filename:
-        description: "Define File Name (with extension, e.g. .txt)"
+        description: "Define File Name (with extension, e.g. .txt & path (if in different directory))"
         required: true
         default: 'sample.txt'
         
